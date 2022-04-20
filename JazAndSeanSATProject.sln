@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1778
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JazAndSeanSATProject.UI.MVC", "JazAndSeanSATProject.UI.MVC\JazAndSeanSATProject.UI.MVC.csproj", "{2FE9F912-A303-48B5-8ADE-EE30B27126B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JazAndSeanSATProject.DATA.EF", "JazAndSeanSATProject.DATA.EF\JazAndSeanSATProject.DATA.EF.csproj", "{491DE826-ED82-4D5E-A904-4B0B96F04CC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2FE9F912-A303-48B5-8ADE-EE30B27126B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE9F912-A303-48B5-8ADE-EE30B27126B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE9F912-A303-48B5-8ADE-EE30B27126B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491DE826-ED82-4D5E-A904-4B0B96F04CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491DE826-ED82-4D5E-A904-4B0B96F04CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491DE826-ED82-4D5E-A904-4B0B96F04CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491DE826-ED82-4D5E-A904-4B0B96F04CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
