@@ -202,6 +202,7 @@
     <Content Include="Content\css\sb-admin-2.min.css" />
     <Content Include="Content\forgot-password.html" />
     <Content Include="Content\gulpfile.js" />
+    <Content Include="Content\img\hamburger-menu-1643557-1394441.png" />
     <Content Include="Content\img\undraw_posting_photo.svg" />
     <Content Include="Content\img\undraw_profile.svg" />
     <Content Include="Content\img\undraw_profile_1.svg" />
