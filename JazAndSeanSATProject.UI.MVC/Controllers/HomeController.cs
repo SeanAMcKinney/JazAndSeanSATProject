@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 
+
 namespace JazAndSeanSATProject.UI.MVC.Controllers
 {
     public class HomeController : Controller
