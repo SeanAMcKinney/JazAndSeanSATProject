@@ -1,0 +1,53 @@
+﻿@model IEnumerable<JazAndSeanSATProject.DATA.EF.StudentStatus>
+
+@{
+    ViewBag.Title = "Student Statuses";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped data-table" id="studentStatusesTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SSName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SSDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSDescription)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SSID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts{
+    <script>
+    $(document).ready( function () {
+    $('#studentStatusesTable').DataTable();
+} );
+    </script>
+}
+
