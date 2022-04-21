@@ -206,6 +206,7 @@
     <Content Include="Content\forgot-password.html" />
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\img\hamburger-menu-1643557-1394441.png" />
+    <Content Include="Content\img\homewallpaper.jpg" />
     <Content Include="Content\img\NoImage.png" />
     <Content Include="Content\img\undraw_posting_photo.svg" />
     <Content Include="Content\img\undraw_profile.svg" />
@@ -3787,6 +3788,7 @@
     <Content Include="Content\package-lock.json" />
     <Content Include="Content\package.json" />
     <Content Include="Content\README.md" />
+    <Content Include="configs\AppSecretKeys.Config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
