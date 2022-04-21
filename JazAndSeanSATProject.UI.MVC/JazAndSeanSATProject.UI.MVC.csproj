@@ -198,6 +198,7 @@
     <Content Include="Content\buttons.html" />
     <Content Include="Content\cards.html" />
     <Content Include="Content\charts.html" />
+    <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
     <Content Include="Content\forgot-password.html" />
