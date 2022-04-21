@@ -162,7 +162,7 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
 
                     if (student.PhotoUrl != null && student.PhotoUrl != "NoImage.png")
                     {
-                        string path = Server.MapPath("/Content/store_images/");
+                        string path = Server.MapPath("~/Content/img/");
                         ImageUtility.Delete(path, student.PhotoUrl);
                     }
 
@@ -205,6 +205,10 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Student student = db.Students.Find(id);
+
+            string path = Server.MapPath("~/Content/img/");
+            ImageUtility.Delete(path, student.PhotoUrl);
+
             db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");

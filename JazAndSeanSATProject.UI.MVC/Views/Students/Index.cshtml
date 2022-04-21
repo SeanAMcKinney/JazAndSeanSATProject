@@ -16,11 +16,11 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.FullName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Major)
             </th>
@@ -57,11 +57,11 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.FullName)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.LastName)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Major)
                 </td>
@@ -84,7 +84,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    <img src="~/Content/img/t_@item.PhotoUrl" alt="@item.FirstName" title="@item.FirstName" />
+                    <img src="~/Content/img/t_@item.PhotoUrl" alt="@item.FullName" title="@item.FullName" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StudentStatus.SSName)

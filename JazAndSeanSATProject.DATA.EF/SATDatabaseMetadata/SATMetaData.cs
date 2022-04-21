@@ -77,7 +77,10 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
     }
 
     [MetadataType(typeof(StudentMetadata))]
-    public partial class Student { }
+    public partial class Student {
+        [Display(Name = "Full Name")]        public string FullName        {            get { return FirstName + " " + LastName; }        }
+
+    }
 
     public class StudentStatusMetadata
     {

@@ -15,6 +15,7 @@
     <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Content/css/custom.css" rel="stylesheet" />
+    
 
 </head>
 <body id="page-top">
@@ -65,13 +66,13 @@
                         <span>Student Statuses</span>
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="@Url.Action("Index", "RolesAdmin")">
                         <span>Roles</span>
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="@Url.Action("Index", "UsersAdmin")">
                         <span>Users</span>
@@ -97,6 +98,12 @@
                 </li>
 
             }
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Contact", "Home")">
+                    <span>Contact Us</span>
+                </a>
+            </li>
 
 
 
@@ -205,7 +212,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    
+
                     @if (Request.IsAuthenticated)
                     {
                         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
@@ -228,14 +235,15 @@
                         </div>
                     }
                 </div>
+
                 @*<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
-                        @Html.AntiForgeryToken()
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                        }
-                    </div>*@
+        <div class="modal-footer">
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            }
+        </div>*@
 
 
             </div>
