@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using JazAndSeanSATProject.DATA.EF;
 using PagedList;
 using PagedList.Mvc;
+using JazAndSeanSATProject.UI.MVC.Models;
+using System.Drawing;
+using MVC3.UI.MVC.Utilities;
 
 namespace JazAndSeanSATProject.UI.MVC.Controllers
 {
@@ -54,10 +57,45 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase photoUrl)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+
+                string file = "NoImage.png";
+
+                if (photoUrl != null)
+                {
+                    file = photoUrl.FileName;
+
+                    string ext = file.Substring(file.LastIndexOf('.'));
+
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".jif" };
+
+                    if (goodExts.Contains(ext.ToLower()) && photoUrl.ContentLength <= 4194304)
+                    {
+                        file = Guid.NewGuid() + ext;
+
+                        #region Resize Image
+
+                        string savePath = Server.MapPath("~/Content/img/");
+
+                        Image convertedImage = Image.FromStream(photoUrl.InputStream);
+
+                        int maxImageSize = 500;
+
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+
+                        #endregion
+                    }
+
+                    student.PhotoUrl = file;
+                }
+
+                #endregion
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -90,8 +128,50 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase photoUrl)
         {
+            #region File Upload
+
+            string file = "NoImage.png";
+
+            if (photoUrl != null)
+            {
+                file = photoUrl.FileName;
+
+                string ext = file.Substring(file.LastIndexOf('.'));
+
+                string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                if (goodExts.Contains(ext.ToLower()) && photoUrl.ContentLength <= 4194304)
+                {
+                    file = Guid.NewGuid() + ext;
+
+                    #region Resize Image
+
+                    string savePath = Server.MapPath("~/Content/img/");
+
+                    Image convertedImage = Image.FromStream(photoUrl.InputStream);
+
+                    int maxImageSize = 500;
+
+                    int maxThumbSize = 100;
+
+                    ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+
+                    #endregion
+
+                    if (student.PhotoUrl != null && student.PhotoUrl != "NoImage.png")
+                    {
+                        string path = Server.MapPath("/Content/store_images/");
+                        ImageUtility.Delete(path, student.PhotoUrl);
+                    }
+
+                    student.PhotoUrl = file;
+                }
+            }
+
+            #endregion
+
             if (ModelState.IsValid)
             {
                 db.Entry(student).State = EntityState.Modified;
