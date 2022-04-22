@@ -49,7 +49,7 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
 
             //MailMessage - What sends the email
             //Overload for MailMessage - FORM, TO, SUBJECT, BOSY
-            MailMessage mm = new MailMessage("administrator@mckinneywebdev.com", "seanamckinney8@gmail.com", cvm.Subject, message);
+            MailMessage mm = new MailMessage(ConfigurationManager.AppSettings["EmailUser"].ToString(), ConfigurationManager.AppSettings["EmailTo"].ToString(), cvm.Subject, message);
 
             //MailMessage Properties
             mm.IsBodyHtml = true;
@@ -58,10 +58,10 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
             mm.ReplyToList.Add(cvm.Email);
 
             //SmtpClient - Info from the host that allows emails to be sent
-            SmtpClient client = new SmtpClient("mail.mckinneywebdev.com");
+            SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["EmailClient"].ToString());
 
             //Client Credentials
-            client.Credentials = new NetworkCredential("administrator@mckinneywebdev.com", "eight8ate*");
+            client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUser"].ToString(), ConfigurationManager.AppSettings["EmailPass"].ToString());
 
             //Port options
             //Test with both to make sure your internet provider isn't blocking one or the other
