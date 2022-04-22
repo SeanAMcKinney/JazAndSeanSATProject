@@ -194,7 +194,6 @@
     <Compile Include="Utilities\ImageUtility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\seanandjazxscript.sql" />
     <Content Include="Content\.gitignore" />
     <Content Include="Content\404.html" />
     <Content Include="Content\blank.html" />
@@ -4044,7 +4043,9 @@
     <Content Include="Views\StudentStatus\Index.cshtml" />
     <Content Include="Views\Home\EmailConfirmation.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
