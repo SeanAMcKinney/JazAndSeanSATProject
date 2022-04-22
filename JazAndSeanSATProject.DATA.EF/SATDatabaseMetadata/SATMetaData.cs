@@ -21,6 +21,8 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
         [Display(Name = "Enrollment Date")]
         public System.DateTime EnrollmentDate { get; set; }
 
+
+
     }//end class
         [MetadataType(typeof(EnrollmentMetadata))]
         public partial class Enrollment { }
@@ -78,7 +80,11 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
 
     [MetadataType(typeof(StudentMetadata))]
     public partial class Student {
-        [Display(Name = "Full Name")]        public string FullName        {            get { return FirstName + " " + LastName; }        }
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
 
     }
 
@@ -97,4 +103,54 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
 
     [MetadataType(typeof(StudentStatusMetadata))]
     public partial class StudentStatus { }
+
+    public class ScheduledClassMetadata
+    {
+        //public int ScheduledClassId { get; set; }
+        public int CourseId { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}")]
+
+        [Required(ErrorMessage = "*")]
+        public System.DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public System.DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public string InstructorName { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public string Location { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public int SCSID { get; set; }
+
+    }
+        [MetadataType(typeof(ScheduledClass))]
+        public partial class ScheduledClass {
+        [Display(Name = "Emrollment Info")]
+        public string EnrollmentInfo
+        {
+            get { return Cours.CourseName  }
+        }
+    }
+
+    public class CoursMetadata
+    {
+        //public int CourseId { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [StringLength(50, ErrorMessage = "* Field must be 50 characters or less")]
+        public string CourseName { get; set; }
+
+        public string CourseDescription { get; set; }
+        public byte CreditHours { get; set; }
+        public string Curriculum { get; set; }
+        public string Notes { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+        [MetadataType(typeof(CoursMetadata))]
+        public partial class Cours { }
 }//end namespace
