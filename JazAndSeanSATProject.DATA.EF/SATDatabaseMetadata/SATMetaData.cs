@@ -132,7 +132,7 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
         [Display(Name = "Emrollment Info")]
         public string EnrollmentInfo
         {
-            get { return Cours.CourseName  }
+            get { return Cours.CourseName + " " + StartDate + " " + Location; }
         }
     }
 

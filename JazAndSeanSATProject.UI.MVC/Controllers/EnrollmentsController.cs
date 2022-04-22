@@ -45,8 +45,8 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         [Authorize(Roles = "Admin, Scheduler")]
         public ActionResult Create()
         {
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "InstructorName");
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName");
+            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "EnrollmentInfo");
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FullName");
             return View();
         }
 
@@ -65,8 +65,8 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", enrollment.StudentId);
+            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "EnrollmentInfo", enrollment.ScheduledClassId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -83,8 +83,8 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", enrollment.StudentId);
+            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "EnrollmentInfo", enrollment.ScheduledClassId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -102,8 +102,8 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", enrollment.StudentId);
+            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "EnrollmentInfo", enrollment.ScheduledClassId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
