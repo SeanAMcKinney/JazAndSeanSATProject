@@ -3791,6 +3791,7 @@
     <Content Include="Content\README.md" />
     <Content Include="configs\AppSecretKeys.Config" />
     <Content Include="App_Data\Jaz And Sean.docx" />
+    <Content Include="Content\Documentation\Jaz_And_Sean.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
