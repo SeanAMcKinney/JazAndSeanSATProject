@@ -122,7 +122,7 @@ namespace JazAndSeanSATProject.DATA.EF/*.SATDatabaseMetadata*/
 
         [Required(ErrorMessage = "*")]
         public string Location { get; set; }
-
+        
         [Required(ErrorMessage = "*")]
         public int SCSID { get; set; }
 
