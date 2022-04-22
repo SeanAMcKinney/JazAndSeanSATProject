@@ -25,6 +25,10 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult Contact()        {            ViewBag.Message = "Your contact page.";            return View();        }
+
+
+        [HttpPost]
         public ActionResult Contact(ContactViewModel cvm)
         {
 
@@ -70,7 +74,7 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
 
                 ViewBag.CustomerMessage = $"We're sorry but your request could not be completed at this time. " +
                     $"Please try again later. If the issue persists, please contact your site administrator " +
-                    $"and provide the following info:<br/>{ex.StackTrace}";
+                    $"and provide the following info:<br/>{ex.Message}";
                 return View(cvm);
             }// end try/catch
 
