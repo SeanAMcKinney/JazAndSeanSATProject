@@ -25,7 +25,12 @@ namespace JazAndSeanSATProject.UI.MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Contact()        {            ViewBag.Message = "Your contact page.";            return View();        }
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
 
 
         [HttpPost]
